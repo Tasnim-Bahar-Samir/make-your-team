@@ -3,11 +3,11 @@
 // function to Select player
 function GetSelectedPlayer( player){
     const playerName = player.parentNode.parentNode.children[0].innerText;
-    const ul = document.getElementById('selected-players');
+    const ol = document.getElementById('selected-players');
     const li = document.createElement('li');
     li.innerText = playerName;
-    if(ul.children.length < 5 ){
-        ul.appendChild(li);
+    if(ol.children.length < 5 ){
+        ol.appendChild(li);
     }else{
         alert('Sorry Cannot Select More Than 5 Players')
         return;
@@ -30,9 +30,14 @@ function setValue(elementId, setItem){
 }
 document.getElementById('calculate').addEventListener('click',function(){
     const perPlayerBudget = getInputElementValue('budget-per-player');
-    const ul = document.getElementById('selected-players');
-    const numberOfPlayer = ul.children.length;
-
+    const ol = document.getElementById('selected-players');
+    const numberOfPlayer = ol.children.length;
+    if(isNaN(perPlayerBudget)){
+        alert('Please provide valid input!');
+    }else if(numberOfPlayer < 1){
+        alert('Please Select Player!');
+        return;
+    }
     const totalPlayerExpenses = numberOfPlayer * perPlayerBudget;
     setValue('player-expense',totalPlayerExpenses);
 
@@ -45,8 +50,11 @@ document.getElementById('cal-total').addEventListener('click',function(){
     const playerExpensesString = document.getElementById('player-expense');
     const playerExpenses = parseFloat(playerExpensesString.innerText);
     const totalExpenses = playerExpenses + budgetForCoach + budgetForManager;
-
-    setValue('total-expenses',totalExpenses)
+    if(isNaN(budgetForCoach) || isNaN(budgetForManager)){
+        alert('Please provide valid input!');
+        return;
+    }
+    setValue('total-expenses',totalExpenses);
     
     
 })
