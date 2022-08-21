@@ -1,7 +1,7 @@
 
 
 // function to Select player
-function GetSelectedPlayer( player){
+function getSelectedPlayer( player){
     const playerName = player.parentNode.parentNode.children[0].innerText;
     const ol = document.getElementById('selected-players');
     const li = document.createElement('li');
@@ -17,17 +17,20 @@ function GetSelectedPlayer( player){
     
 }
 
+// function for getting input value as number 
 function getInputElementValue(inputId){
     const inputElemnt = document.getElementById(inputId);
     const elementValue = parseFloat(inputElemnt.value);
     return elementValue;
 }
 
-
+// function to set a value as innertext
 function setValue(elementId, setItem){
     const element = document.getElementById(elementId);
     element.innerText = setItem;
 }
+
+//click event on calculate button
 document.getElementById('calculate').addEventListener('click',function(){
     const perPlayerBudget = getInputElementValue('budget-per-player');
     const ol = document.getElementById('selected-players');
@@ -44,6 +47,7 @@ document.getElementById('calculate').addEventListener('click',function(){
 })
 
 
+// click event on total button
 document.getElementById('cal-total').addEventListener('click',function(){
     const budgetForCoach = getInputElementValue('budget-for-coach');
     const budgetForManager = getInputElementValue('budget-for-manager');
