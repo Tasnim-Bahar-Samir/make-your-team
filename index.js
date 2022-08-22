@@ -13,7 +13,7 @@ function getSelectedPlayer( player){
         return;
     }
     player.setAttribute('disabled',true);
-    player.style.backgroundColor = 'gray'
+    player.style.backgroundColor = 'gray';
     
 }
 
@@ -37,6 +37,7 @@ document.getElementById('calculate').addEventListener('click',function(){
     const numberOfPlayer = ol.children.length;
     if(isNaN(perPlayerBudget)){
         alert('Please provide valid input!');
+        return;
     }else if(numberOfPlayer < 1){
         alert('Please Select Player!');
         return;
