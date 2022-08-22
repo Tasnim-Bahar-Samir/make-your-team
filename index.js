@@ -9,7 +9,7 @@ function getSelectedPlayer( player){
     if(ol.children.length < 5 ){
         ol.appendChild(li);
     }else{
-        alert('Sorry Cannot Select More Than 5 Players')
+        alert('Sorry Cannot Select More Than 5 Players');
         return;
     }
     player.setAttribute('disabled',true);
@@ -30,7 +30,7 @@ function setValue(elementId, setItem){
     element.innerText = setItem;
 }
 
-//click event on calculate button
+//click event on calculate player expense button
 document.getElementById('calculate').addEventListener('click',function(){
     const perPlayerBudget = getInputElementValue('budget-per-player');
     const ol = document.getElementById('selected-players');
@@ -48,7 +48,7 @@ document.getElementById('calculate').addEventListener('click',function(){
 })
 
 
-// click event on total button
+// click event on 'total expense' button
 document.getElementById('cal-total').addEventListener('click',function(){
     const budgetForCoach = getInputElementValue('budget-for-coach');
     const budgetForManager = getInputElementValue('budget-for-manager');
